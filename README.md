@@ -5,8 +5,11 @@
 ```docker
 FROM gdml/django-base
 
-ADD . /srv/
-WORKDIR /SRV
+WORKDIR /srv
+
+ADD . /srv
+RUN ./manage.py compilemessages
+RUN ./manage.py collectstatic --noinput
 
 # Developer machine, autoreload
 CMD ["dockerize", "-wait", "tcp://postgres:5432", "-timeout", "60s",   "./manage.py", "runserver", "0.0.0.0:8000"]

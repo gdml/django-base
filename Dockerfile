@@ -3,13 +3,17 @@ LABEL maintainer="fb@gdml.ru"
 
 ENV PYTHONUNBUFFERED 1
 ENV DEBIAN_FRONTEND noninteractive
+
 ENV STATIC_ROOT /static
+ENV MEDIA_ROOT /media
+
 ENV DOCKERIZE_VERSION v0.6.1
 ENV WKHTMLTOPDF_VERSION 0.12.3
 
 VOLUME /static
 VOLUME /media
-EXPOSE 6000
+
+EXPOSE 8000
 
 RUN echo deb http://deb.debian.org/debian stretch contrib non-free > /etc/apt/sources.list.d/debian-contrib.list \
     && apt-get update \

@@ -1,5 +1,7 @@
 # Base django docker image
 
+![](https://img.shields.io/docker/build/gdml/django-base.svg) ![](https://img.shields.io/docker/pulls/gdml/django-base.svg)
+
 ## Usage
 
 ```docker

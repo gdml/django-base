@@ -17,11 +17,11 @@ EXPOSE 8000
 
 RUN echo deb http://deb.debian.org/debian stretch contrib non-free > /etc/apt/sources.list.d/debian-contrib.list \
     && apt-get update \
-    && apt-get --no-install-recommends install -y gettext locales-all wget
+    && apt-get --no-install-recommends install -y gettext locales-all wget imagemagick
 
 RUN apt-get --no-install-recommends install -y build-essential libxml2-dev libxslt1-dev \
     && apt-get --no-install-recommends install -y libjpeg62-turbo-dev libjpeg-dev libfreetype6-dev libtiff5-dev liblcms2-dev libwebp-dev tk8.6-dev \
-    && apt-get --no-install-recommends install -y libffi-dev libcgraph6 libgraphviz-dev
+    && apt-get --no-install-recommends install -y libffi-dev libcgraph6 libgraphviz-dev libmagic-dev
 
 RUN wget https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSION/dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz \
     && tar -C /usr/local/bin -xzvf dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz \

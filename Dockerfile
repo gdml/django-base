@@ -9,7 +9,6 @@ ENV MEDIA_ROOT /media
 
 ENV DOCKERIZE_VERSION v0.6.1
 ENV WKHTMLTOPDF_VERSION 0.12.3
-ENV UWSGI_VERSION 2.0.17.1
 
 VOLUME /static
 VOLUME /media
@@ -34,9 +33,9 @@ RUN wget https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/$WKHTMLTOP
     && cp -R wkhtmltox/* /usr \
     && rm -Rf wkhtmltox*
 
-RUN wget -O uwsgi-$UWSGI_VERSION.tar.gz https://github.com/unbit/uwsgi/archive/$UWSGI_VERSION.tar.gz \
+RUN wget -O uwsgi-2.0.17.1.tar.gz https://github.com/unbit/uwsgi/archive/2.0.17.1.tar.gz \
     && tar zxvf uwsgi-*.tar.gz \
-    && UWSGI_BIN_NAME=/usr/local/bin/uwsgi make -C uwsgi-$UWSGI_VERSION \
+    && UWSGI_BIN_NAME=/usr/local/bin/uwsgi make -C uwsgi-2.0.17.1 \
     && rm -Rf uwsgi-*
 
 ONBUILD ADD requirements.txt /

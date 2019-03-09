@@ -1,5 +1,5 @@
 FROM python:3.6-slim-stretch
-LABEL maintainer="fb@gdml.ru"
+LABEL maintainer="fedor@borshev.com"
 
 ENV PYTHONUNBUFFERED 1
 ENV DEBIAN_FRONTEND noninteractive
@@ -17,7 +17,7 @@ EXPOSE 8000
 
 RUN echo deb http://deb.debian.org/debian stretch contrib non-free > /etc/apt/sources.list.d/debian-contrib.list \
     && apt-get update \
-    && apt-get --no-install-recommends install -y gettext locales-all wget imagemagick
+    && apt-get --no-install-recommends install -y gettext locales-all wget imagemagick tzdata
 
 RUN apt-get --no-install-recommends install -y build-essential libxml2-dev libxslt1-dev \
     && apt-get --no-install-recommends install -y libjpeg62-turbo-dev libjpeg-dev libfreetype6-dev libtiff5-dev liblcms2-dev libwebp-dev tk8.6-dev \

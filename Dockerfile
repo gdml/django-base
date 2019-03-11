@@ -44,3 +44,4 @@ RUN wget -O uwsgi-${_UWSGI_VERSION}.tar.gz https://github.com/unbit/uwsgi/archiv
 
 ONBUILD ADD requirements.txt /
 ONBUILD run pip install -r /requirements.txt
+ONBUILD run ./manage.py compilemessages

@@ -1,5 +1,6 @@
 # Base django docker image
 
+[![](https://images.microbadger.com/badges/image/gdml/django-base.svg)](https://microbadger.com/images/f213/periodic-docker-prune "Get your own image badge on microbadger.com")
 ![](https://img.shields.io/docker/build/gdml/django-base.svg) ![](https://img.shields.io/docker/pulls/gdml/django-base.svg)
 
 ## Usage

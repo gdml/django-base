@@ -1,6 +1,8 @@
 FROM python:3.6-slim-stretch
 LABEL maintainer="fedor@borshev.com"
 
+LABEL com.datadoghq.ad.logs='[{"source": "uwsgi", "service": "django"}]'
+
 ENV PYTHONUNBUFFERED 1
 ENV DEBIAN_FRONTEND noninteractive
 

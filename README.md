@@ -24,7 +24,7 @@ CMD ["uwsgi", "--http", ":8000", "--module", "app.wsgi", "--workers", "2", "--th
 Your `requirements.txt` should be located in the same folder as the Dockerfile.
 
 ## Contents
-* Python 3.6 (based on official slim images)
+* Python 3.7 (based on official slim images)
 * UWSGI
 * [dockerize](https://github.com/jwilder/dockerize)
 * [wkhtmltopdf](https://wkhtmltopdf.org)

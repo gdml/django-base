@@ -1,4 +1,4 @@
-FROM python:3.6-slim-stretch
+FROM python:3.7-slim-stretch
 LABEL maintainer="fedor@borshev.com"
 
 LABEL com.datadoghq.ad.logs='[{"source": "uwsgi", "service": "django"}]'
@@ -49,4 +49,4 @@ RUN wget -O uwsgi-${_UWSGI_VERSION}.tar.gz https://github.com/unbit/uwsgi/archiv
     && rm -Rf uwsgi-*
 
 ONBUILD ADD requirements.txt /
-ONBUILD run pip install --no-cache-dir -r /requirements.txt
+ONBUILD RUN pip install --no-cache-dir -r /requirements.txt

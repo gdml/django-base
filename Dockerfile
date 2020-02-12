@@ -47,6 +47,3 @@ RUN wget -O uwsgi-${_UWSGI_VERSION}.tar.gz https://github.com/unbit/uwsgi/archiv
     && tar zxvf uwsgi-*.tar.gz \
     && UWSGI_BIN_NAME=/usr/local/bin/uwsgi make -C uwsgi-${_UWSGI_VERSION} \
     && rm -Rf uwsgi-*
-
-ONBUILD ADD requirements.txt /
-ONBUILD RUN pip install --no-cache-dir -r /requirements.txt

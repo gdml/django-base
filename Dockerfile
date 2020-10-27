@@ -1,5 +1,5 @@
-FROM python:3.7-slim-stretch
-LABEL maintainer="fedor@borshev.com"
+FROM python:3.8.6-slim-buster
+LABEL maintainer="developers@gdml.ru"
 
 LABEL com.datadoghq.ad.logs='[{"source": "uwsgi", "service": "django"}]'
 
@@ -9,7 +9,7 @@ ENV DEBIAN_FRONTEND noninteractive
 ENV STATIC_ROOT /static
 ENV MEDIA_ROOT /media
 
-ENV _UWSGI_VERSION 2.0.18
+ENV _UWSGI_VERSION 2.0.19.1
 ENV DOCKERIZE_VERSION v0.6.1
 ENV WKHTMLTOPDF_VERSION 0.12.3
 
@@ -28,7 +28,7 @@ RUN apt-get update && apt-get --no-install-recommends install -y build-essential
     && apt-get --no-install-recommends install -y libffi-dev libcgraph6 libgraphviz-dev libmagic-dev \
     && rm -rf /var/lib/apt/lists/*
 
-RUN apt-get update && apt-get install -y libssl1.0-dev \
+RUN apt-get update && apt-get install -y libssl1.1 \
     && echo "ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true" | debconf-set-selections \
     && apt-get install -y --no-install-recommends fontconfig ttf-mscorefonts-installer \
     && rm -rf /var/lib/apt/lists/*
@@ -48,5 +48,3 @@ RUN wget -O uwsgi-${_UWSGI_VERSION}.tar.gz https://github.com/unbit/uwsgi/archiv
     && UWSGI_BIN_NAME=/usr/local/bin/uwsgi make -C uwsgi-${_UWSGI_VERSION} \
     && rm -Rf uwsgi-*
 
-ONBUILD ADD requirements.txt /
-ONBUILD RUN pip install --no-cache-dir -r /requirements.txt

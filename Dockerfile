@@ -1,4 +1,4 @@
-FROM python:3.7-slim-stretch
+FROM python:3.8-slim-stretch
 LABEL maintainer="fedor@borshev.com"
 
 LABEL com.datadoghq.ad.logs='[{"source": "uwsgi", "service": "django"}]'
@@ -9,9 +9,9 @@ ENV DEBIAN_FRONTEND noninteractive
 ENV STATIC_ROOT /static
 ENV MEDIA_ROOT /media
 
-ENV _UWSGI_VERSION 2.0.18
+ENV _UWSGI_VERSION 2.0.19.1
 ENV DOCKERIZE_VERSION v0.6.1
-ENV WKHTMLTOPDF_VERSION 0.12.3
+ENV WKHTMLTOPDF_VERSION 0.12.6
 
 VOLUME /static
 VOLUME /media

@@ -23,7 +23,7 @@ RUN echo deb http://deb.debian.org/debian stretch contrib non-free > /etc/apt/so
     && apt-get --no-install-recommends install -y gettext locales-all wget imagemagick tzdata \
     && rm -rf /var/lib/apt/lists/*
 
-RUN apt-get update && apt-get --no-install-recommends install -y build-essential libxml2-dev libxslt1-dev \
+RUN apt-get update && apt-get --no-install-recommends install -y build-essential libxml2-dev libxslt1-dev mime-support \
     && apt-get --no-install-recommends install -y libjpeg62-turbo-dev libjpeg-dev libfreetype6-dev libtiff5-dev liblcms2-dev libwebp-dev tk8.6-dev \
     && apt-get --no-install-recommends install -y libffi-dev libcgraph6 libgraphviz-dev libmagic-dev \
     && rm -rf /var/lib/apt/lists/*
